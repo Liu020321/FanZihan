@@ -159,9 +159,15 @@ importers:
       '@iconify-json/mdi':
         specifier: 1.1.67
         version: 1.1.67
+      '@iconify-json/mynaui':
+        specifier: ^1.2.9
+        version: 1.2.9
       '@iconify-json/tabler':
         specifier: 1.1.118
         version: 1.1.118
+      '@iconify-json/twemoji':
+        specifier: ^1.2.2
+        version: 1.2.2
       '@iconify/tools':
         specifier: 4.0.4
         version: 4.0.4
@@ -751,8 +757,14 @@ packages:
   '@iconify-json/mdi@1.1.67':
     resolution: {integrity: sha512-00nllHES8hyACwIfgySlQgAE6MKgpr2wsKfpifMiZWZ9aXC5l4Jb0lR3lJSWwXgOW6kzAOdzC3T+2VOfBBZ13A==}
 
+  '@iconify-json/mynaui@1.2.9':
+    resolution: {integrity: sha512-dd5yNIPxD3W/kRd9t8xc1SVh/UqicaYsaDg7dStGjlT1wqjhvkLjj10xeNZARz1vDaOlCoFJnkf2OKIejTnHOw==}
+
   '@iconify-json/tabler@1.1.118':
     resolution: {integrity: sha512-nDOjYG75BlagOe4e+V3K4qVFujdPOeYzi6ZB3sYz0xbdIkpSF/4YvKGdLDr4tmkwGUTV8fhlHVfMpRoDoBnnnA==}
+
+  '@iconify-json/twemoji@1.2.2':
+    resolution: {integrity: sha512-ckWEY5KhIQgdFd9VGvfhecTtYUx3ihXycwlZcEws87LxuvIThMHNBCblrQQ5afhbGMfg21dF+z9F+ODMRDYHMg==}
 
   '@iconify/tools@4.0.4':
     resolution: {integrity: sha512-hX1Z3i1Tm6JxyrDv45jNEijPpepZZfal/4leFGtUC04H9LsgRo597BOBFB9PUZsQdFGLOxVUUfv6lqU/dC+xXw==}
@@ -5015,7 +5027,15 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
+  '@iconify-json/mynaui@1.2.9':
+    dependencies:
+      '@iconify/types': 2.0.0
+
   '@iconify-json/tabler@1.1.118':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/twemoji@1.2.2':
     dependencies:
       '@iconify/types': 2.0.0
 

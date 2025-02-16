@@ -84,7 +84,7 @@ const hideTitleAndIcon = configStore.isVerticalNavMini(isHovered)
               v-show="!hideTitleAndIcon"
               class="app-logo-title"
             >
-              {{ layoutConfig.app.title }}
+              志愿辅助系统
             </h1>
           </Transition>
         </RouterLink>
