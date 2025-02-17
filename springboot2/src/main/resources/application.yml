@@ -8,6 +8,8 @@ mybatis:
   config-location: classpath:mybatis-config.xml
 # Spring配置
 spring:
+#  jackson:
+#    default-property-inclusion: non_null
   servlet:
     multipart:
       max-file-size: 200MB
@@ -21,12 +23,12 @@ spring:
     resources:
       static-locations: classpath:/static/,classpath:/public/
 
-#  # 安全访问账户名密码
-#  security:
-#    user:
-#      name: 20204112
-#      password: 12345678
-#      roles: admin
+  # 安全访问账户名密码
+  security:
+    user:
+      name: admin
+      password: 12345678
+      roles: admin
   # 开启热部署
   devtools:
     restart:

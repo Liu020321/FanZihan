@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fzh.service.UserOpinionMapper">
+
+    <!-- 插入用户意见 -->
+    <insert id="insertUserOpinion" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user_opinions (user_id, high_school, university, major_name, university_grade, opinion_type,
+                                   opinion_text, opinion_images, opinion_time)
+        VALUES (#{userId}, #{highSchool}, #{university}, #{majorName}, #{universityGrade}, #{opinionType},
+                #{opinionText}, #{opinionImages, jdbcType=VARCHAR}, #{opinionTime});
+    </insert>
+
+    <!-- 根据user_id查询用户的所有意见 -->
+    <select id="getUserOpinionsByUserId" parameterType="Integer" resultType="UserOpinion">
+        SELECT *
+        FROM user_opinions
+        WHERE user_id = #{userId};
+    </select>
+
+    <!-- 根据ID删除用户意见 -->
+    <delete id="deleteUserOpinion" parameterType="Integer">
+        DELETE
+        FROM user_opinions
+        WHERE id = #{id};
+    </delete>
+
+</mapper>
+

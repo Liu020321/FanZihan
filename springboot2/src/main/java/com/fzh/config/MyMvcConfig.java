@@ -9,7 +9,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-//        registry.addViewController("/").setViewName("user/sign-in");
+//        registry.addViewController("/user").setViewName("user");
 //        registry.addViewController("/index.html").setViewName("index");
 //        // 用户路由
 //        registry.addViewController("/login").setViewName("user/sign-in");
@@ -33,7 +33,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
 //        registry.addViewController("/inHospital").setViewName("govern/inHospital");
 //        registry.addViewController("/medicare").setViewName("govern/medicare");
 //        registry.addViewController("/prescribe").setViewName("govern/prescribe");
-
+//
 
     }
 }

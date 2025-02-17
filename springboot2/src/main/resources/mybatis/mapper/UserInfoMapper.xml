@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fzh.service.UserInfoMapper">
+
+    <!-- 插入用户信息 -->
+    <insert id="insertUserInfo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user_info (user_id, nickname, avatar_url, real_name, gender, phone_number, high_school,
+                               current_grade, university, major_name, university_grade, work_experience)
+        VALUES (#{userId}, #{nickname}, #{avatarUrl}, #{realName}, #{gender}, #{phoneNumber}, #{highSchool},
+                #{currentGrade}, #{university}, #{majorName}, #{universityGrade}, #{workExperience});
+    </insert>
+
+    <!-- 根据user_id查询用户信息 -->
+    <select id="getUserInfoByUserId" parameterType="Integer" resultType="UserInfo">
+        SELECT *
+        FROM user_info
+        WHERE user_id = #{userId};
+    </select>
+
+    <!-- 根据user_id删除用户信息 -->
+    <delete id="deleteUserInfo" parameterType="Integer">
+        DELETE
+        FROM user_info
+        WHERE user_id = #{userId};
+    </delete>
+
+</mapper>
+
