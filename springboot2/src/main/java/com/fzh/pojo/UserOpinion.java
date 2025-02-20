@@ -19,7 +19,6 @@ public class UserOpinion {
     private String universityGrade;
     private String opinionType;
     private String opinionText;
-    private List<String> opinionImages;  // 存储图片的地址
     private LocalDateTime opinionTime;   // 使用 LocalDateTime 存储精确到小时的时间
 
 }
