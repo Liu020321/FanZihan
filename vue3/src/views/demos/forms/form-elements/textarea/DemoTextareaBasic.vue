@@ -1,6 +1,6 @@
 <template>
   <AppTextarea
-    label="Default"
-    placeholder="Placeholder Text"
+    label="意见输入"
+    placeholder="请输入你的意见"
   />
 </template>

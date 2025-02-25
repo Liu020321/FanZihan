@@ -1,11 +1,21 @@
 package com.fzh.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class MyMvcConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        // 允许所有的请求来源
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:5173")  // 允许来自前端的请求
+                .allowedMethods("GET", "POST", "PUT", "DELETE")  // 允许的HTTP方法
+                .allowedHeaders("*");  // 允许的请求头
+    }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {

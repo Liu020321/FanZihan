@@ -1,11 +1,11 @@
 <script setup lang="ts">
-const items = ['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']
+const items = ['就业', '学习', '生活', '其他']
 </script>
 
 <template>
   <AppAutocomplete
-    label="States"
+    label="意见类型"
     :items="items"
-    placeholder="Select State"
+    placeholder="选择意见类型"
   />
 </template>

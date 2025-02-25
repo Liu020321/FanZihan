@@ -30,19 +30,20 @@ const textareaValue = ref('The Woodman set to work at once, and so sharp was his
 export const basic = {
   ts: `<template>
   <AppTextarea
-    label="Default"
-    placeholder="Placeholder Text"
+    label="意见输入"
+    placeholder="请输入您的意见"
   />
 </template>
 `,
   js: `<template>
   <AppTextarea
-    label="Default"
-    placeholder="Placeholder Text"
+    label="意见输入"
+    placeholder="请输入您的意见"
   />
 </template>
 `,
 }
+
 
 export const browserAutocomplete = {
   ts: `<template>

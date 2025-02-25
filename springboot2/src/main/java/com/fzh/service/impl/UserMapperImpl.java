@@ -3,6 +3,7 @@ package com.fzh.service.impl;
 import com.fzh.pojo.User;
 import com.fzh.pojo.UserWithDetails;
 import com.fzh.service.UserMapper;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,10 @@ import java.util.List;
 public class UserMapperImpl {
     @Autowired
     private UserMapper userMapper;
+
+    public User findByAccount(String account) {
+        return userMapper.findByAccount(account);
+    }
 
     public void addUser(User user) {
         userMapper.insertUser(user);
@@ -29,4 +34,6 @@ public class UserMapperImpl {
     public List<UserWithDetails> getAllUsersWithDetails() {
         return userMapper.getAllUsersWithDetails();
     }
+
+
 }
