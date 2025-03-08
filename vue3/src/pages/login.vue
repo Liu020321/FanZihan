@@ -12,6 +12,8 @@ import authV2MaskLight from '@images/pages/misc-mask-light.png'
 import { VNodeRenderer } from '@layouts/components/VNodeRenderer'
 import { themeConfig } from '@themeConfig'
 
+import { db } from '@db/auth/db'
+
 const authThemeImg = useGenerateImageVariant(authV2LoginIllustrationLight, authV2LoginIllustrationDark, authV2LoginIllustrationBorderedLight, authV2LoginIllustrationBorderedDark, true)
 
 const authThemeMask = useGenerateImageVariant(authV2MaskLight, authV2MaskDark)
@@ -38,7 +40,7 @@ const errors = ref<Record<string, string | undefined>>({
 const refVForm = ref<VForm>()
 
 const credentials = ref({
-  email: 'admin@demo.com',
+  email: 'admin@admin.com',
   password: 'admin',
 })
 
@@ -46,6 +48,10 @@ const rememberMe = ref(false)
 
 const login = async () => {
   try {
+    // 确保在登录前先加载用户数据
+    await db.fetchUsers();  // 添加这行代码来确保用户数据加载
+
+    // 接着进行登录操作
     const res = await $api('/auth/login', {
       method: 'POST',
       body: {
@@ -66,7 +72,6 @@ const login = async () => {
     useCookie('accessToken').value = accessToken
 
     // Redirect to `to` query if exist or redirect to index route
-    // ❗ nextTick is required to wait for DOM updates and later redirect
     await nextTick(() => {
       router.replace(route.query.to ? String(route.query.to) : '/')
     })
@@ -137,25 +142,13 @@ const onSubmit = () => {
       >
         <VCardText>
           <h4 class="text-h4 mb-1">
-            Welcome to <span class="text-capitalize"> {{ themeConfig.app.title }} </span>! 👋🏻
+            欢迎来到 <span class="text-capitalize">学生志愿辅助填报系统</span>! 👋🏻
           </h4>
           <p class="mb-0">
-            Please sign-in to your account and start the adventure
+            请登录你的账户开始体验吧！
           </p>
         </VCardText>
-        <VCardText>
-          <VAlert
-            color="primary"
-            variant="tonal"
-          >
-            <p class="text-sm mb-2">
-              Admin Email: <strong>admin@demo.com</strong> / Pass: <strong>admin</strong>
-            </p>
-            <p class="text-sm mb-0">
-              Client Email: <strong>client@demo.com</strong> / Pass: <strong>client</strong>
-            </p>
-          </VAlert>
-        </VCardText>
+        
         <VCardText>
           <VForm
             ref="refVForm"
@@ -166,7 +159,7 @@ const onSubmit = () => {
               <VCol cols="12">
                 <AppTextField
                   v-model="credentials.email"
-                  label="Email"
+                  label="邮箱"
                   placeholder="johndoe@email.com"
                   type="email"
                   autofocus
@@ -179,7 +172,7 @@ const onSubmit = () => {
               <VCol cols="12">
                 <AppTextField
                   v-model="credentials.password"
-                  label="Password"
+                  label="密码"
                   placeholder="············"
                   :rules="[requiredValidator]"
                   :type="isPasswordVisible ? 'text' : 'password'"
@@ -191,13 +184,13 @@ const onSubmit = () => {
                 <div class="d-flex align-center flex-wrap justify-space-between my-6">
                   <VCheckbox
                     v-model="rememberMe"
-                    label="Remember me"
+                    label="保持登录"
                   />
                   <RouterLink
                     class="text-primary ms-2 mb-1"
                     :to="{ name: 'forgot-password' }"
                   >
-                    Forgot Password?
+                    忘记密码？
                   </RouterLink>
                 </div>
 
@@ -205,7 +198,7 @@ const onSubmit = () => {
                   block
                   type="submit"
                 >
-                  Login
+                  登录
                 </VBtn>
               </VCol>
 
@@ -214,20 +207,20 @@ const onSubmit = () => {
                 cols="12"
                 class="text-center"
               >
-                <span>New on our platform?</span>
+                <span>第一次访问我们的平台？</span>
                 <RouterLink
                   class="text-primary ms-1"
                   :to="{ name: 'register' }"
                 >
-                  Create an account
+                  创建一个新的账户
                 </RouterLink>
               </VCol>
               <VCol
                 cols="12"
-                class="d-flex align-center"
+                class="d-flex align-center justify-center"
               >
                 <VDivider />
-                <span class="mx-4">or</span>
+                <span class="mx-4">或者</span>
                 <VDivider />
               </VCol>
 

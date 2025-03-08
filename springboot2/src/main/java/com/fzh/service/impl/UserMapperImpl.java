@@ -14,25 +14,14 @@ public class UserMapperImpl {
     @Autowired
     private UserMapper userMapper;
 
-    public User findByAccount(String account) {
-        return userMapper.findByAccount(account);
-    }
-
-    public void addUser(User user) {
-        userMapper.insertUser(user);
-    }
-
-    public void deleteUser(Integer id) {
-        userMapper.deleteUser(id);
-    }
-
-    public List<User> getAllUsers() {
-        return userMapper.getAllUsers();
-    }
-
     // 获取所有用户及详细信息
     public List<UserWithDetails> getAllUsersWithDetails() {
         return userMapper.getAllUsersWithDetails();
+    }
+
+    // 获取所有用户及详细信息（不包含 userOpinions）
+    public List<User> getAllUsersWithoutOpinions() {
+        return userMapper.getAllUsersWithoutOpinions();
     }
 
 

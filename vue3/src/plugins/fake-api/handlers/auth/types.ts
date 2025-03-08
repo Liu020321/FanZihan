@@ -21,7 +21,7 @@ export interface User {
 export interface UserOut {
   userAbilityRules: User['abilityRules']
   accessToken: string
-  userData: Omit<User, 'abilities' | 'password'>
+  userData: Omit<User, 'abilityRules' | 'password'>
 }
 
 export interface LoginResponse {

@@ -66,24 +66,28 @@
                  LEFT JOIN user_opinions o ON u.id = o.user_id
     </select>
 
-
-    <!-- 插入新用户 -->
-    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO users (is_admin, account, password)
-        VALUES (#{isAdmin}, #{account}, #{password});
-    </insert>
-
-    <!-- 根据ID删除用户 -->
-    <delete id="deleteUser" parameterType="Integer">
-        DELETE
-        FROM users
-        WHERE id = #{id};
-    </delete>
-
-    <!-- 获取所有用户 -->
-    <select id="getAllUsers" resultMap="userResultMap">
-        SELECT *
-        FROM users;
+    <!-- 查询所有用户及其详细信息（不包含 userOpinions） -->
+    <select id="getAllUsersWithoutOpinions" resultMap="userResultMap">
+        SELECT u.id,
+               u.is_admin,
+               u.account,
+               u.password,
+               ui.id AS user_info_id,
+               ui.user_id,
+               ui.nickname,
+               ui.avatar_url,
+               ui.real_name,
+               ui.gender,
+               ui.phone_number,
+               ui.high_school,
+               ui.current_grade,
+               ui.university,
+               ui.major_name,
+               ui.university_grade,
+               ui.work_experience
+        FROM users u
+                 LEFT JOIN user_info ui ON u.id = ui.user_id
     </select>
+
 
 </mapper>

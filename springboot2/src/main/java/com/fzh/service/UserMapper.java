@@ -14,16 +14,10 @@ import java.util.List;
 @Repository
 public interface UserMapper {
 
-    @Select("SELECT * FROM users WHERE account = #{account}")
-    User findByAccount(String account);
-
-    void insertUser(User user);
-
-    void deleteUser(Integer id);
-
-    List<User> getAllUsers();
-
     List<UserWithDetails> getAllUsersWithDetails();
+
+    // 获取所有用户及其详细信息（不包含 userOpinions）
+    List<User> getAllUsersWithoutOpinions();
 }
 
 
