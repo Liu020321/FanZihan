@@ -11,7 +11,7 @@
  Target Server Version : 80403 (8.4.3)
  File Encoding         : 65001
 
- Date: 25/02/2025 20:52:12
+ Date: 18/03/2025 11:48:51
 */
 
 SET NAMES utf8mb4;
@@ -38,14 +38,14 @@ CREATE TABLE `user_info`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id` ASC) USING BTREE,
   CONSTRAINT `user_info_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 64 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 64 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user_info
 -- ----------------------------
-INSERT INTO `user_info` VALUES (1, 1, '我张狂', NULL, '张三', 'Male', '12345678', '石家庄高中', '3', '石家庄铁道大学', '软件工程', '4', '未毕业');
-INSERT INTO `user_info` VALUES (2, 2, '我姓刘', NULL, '刘环', 'Male', '789465132', '内蒙古高中', '2', '内蒙古大学', '计算机科学与技术', '3', '未毕业');
-INSERT INTO `user_info` VALUES (3, 3, '李是谁', NULL, '李四', 'Female', '936374561', '北京附属中学', '3', NULL, NULL, '1', '未毕业');
+INSERT INTO `user_info` VALUES (1, 1, '我张狂', 'images/avatars/avatar-1.png', '张三', 'Male', '12345678', '石家庄高中', '3', '石家庄铁道大学', '软件工程', '4', '未毕业');
+INSERT INTO `user_info` VALUES (2, 2, '我姓刘', 'images/avatars/avatar-2.png', '刘环', 'Male', '789465132', '内蒙古高中', '2', '内蒙古大学', '计算机科学与技术', '3', '未毕业');
+INSERT INTO `user_info` VALUES (3, 3, '李是谁', 'images/avatars/avatar-3.png', '李四', 'Female', '936374561', '北京附属中学', '3', NULL, NULL, '1', '未毕业');
 INSERT INTO `user_info` VALUES (7, 4, 'BobWhite', 'https://example.com/avatar4.jpg', 'Bob White', 'Male', '12345678904', 'High School D', '1', 'University A', 'Mathematics', '1', '未毕业');
 INSERT INTO `user_info` VALUES (8, 5, 'CharlieGreen', 'https://example.com/avatar5.jpg', 'Charlie Green', 'Male', '12345678905', 'High School E', '2', 'University B', 'Chemistry', '2', '5年以上');
 INSERT INTO `user_info` VALUES (9, 6, 'DianaBlack', 'https://example.com/avatar6.jpg', 'Diana Black', 'Female', '12345678906', 'High School F', '3', 'University C', 'Biology', '3', '未毕业');
@@ -87,7 +87,7 @@ CREATE TABLE `user_opinions`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id` ASC) USING BTREE,
   CONSTRAINT `user_opinions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user_opinions
@@ -136,7 +136,7 @@ CREATE TABLE `users`  (
   `account` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 64 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 64 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of users
